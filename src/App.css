@@ -1,38 +1,142 @@
-.App {
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
   text-align: center;
+  padding: 32px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-wrap: wrap;
+  padding: 0 4px;
+  justify-content:center;
+}
+
+/*      equal contents coloumn that sits next to each other       */
+
+.content {
+  flex: 23%;
+  max-width: 23%;
+  padding: 0 4px;
+  margin: 0 0.5rem 1rem 0.5rem ;
+  border: 1px solid #ccc;
+  background-color: #F7FAFA;
+  box-shadow: 7px 7px 3.5px #aaaaaa;
+  position: relative;
+}
+.content:hover {
+  border: 2px solid #777;
+}
+.product-title{
+  text-align: center;
+  padding-top: 2px;
+  font-weight: 900;
+  border-bottom: 0.4px solid #ccc;
+  background-color: #ccf9f9;
+}
+
+.content img {
+  margin-top: 8px;
+  vertical-align: middle;
+  height: 27vh;
+
+}
+
+/*          style of product details like price , offer, rating despriction etc       */
+
+div.desc {
+  padding: 5px 8px 1px 8px;
+  text-align: center;
+  
+}
+.rating{
+  padding-top: 10px;
+  font-weight: bolder;
+  font-size: larger;
+}
+.productDetails{
+  text-align: left;
+
+}
+.actualPrice{
+  text-decoration: line-through;
+  text-decoration-color: red;
+ 
+}
+.offerPrice{
+  background-color: rgb(20, 88, 20);
   color: white;
+  padding: 0.2rem;
+  border-radius: 0.1rem;
+  margin-top: 0.4em;
+}
+.stockWarning{
+  color: red;
+}
+.savingDetail{
+ color:white;
+ background-color: #800507;
+ width: 100%;
+ text-align: center;
+ margin: none;
+ padding: 0.2rem 0;
+
+
 }
 
-.App-link {
-  color: #61dafb;
+/* Responsive layout ---> change to  two image per row */
+
+@media (max-width: 900px) {
+  .content {
+    flex: 46%;
+    max-width: 46%;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive layout ---> change to  one image per  row */
+@media (max-width: 600px) {
+  .content {
+    flex: 97%;
+    max-width: 97%;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+
+
+/*                               style of pagination                                      */
+
+div .paginationContainer{
+  text-align: center;
+  padding: 0.4rem 0;
+  margin:1rem 0 3rem 0;
+}
+
+.paginationButton{
+  padding: 0.4rem 2rem;
+  margin: 0 2rem ;
+  border-radius: 10px;
+  background-color: #e36724;
+  color: white;
+  opacity: 0.6;
+}
+.paginationButton:hover{
+ opacity: 1;
+}
+.paginationButton:active{
+  background-color: green;
+}
+.currentPage{
+  font-weight: bolder;
+  margin: 0 .5rem;
+  background-color: green;
+  color: white;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.4rem;
 }

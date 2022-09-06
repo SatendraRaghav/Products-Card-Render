@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./App.css";
+import Home from "./Components/Home";
+import Pagination from "./Components/Pagination";
 
-function App() {
+const App = () => {
+  const [page, setPage] = useState(1);
+  const [products, setProducts] = useState([0]);
+  useEffect(() => {
+    const fetchAPi = async () => {
+      const URL = `https://dummyjson.com/products?skip=${
+        (page - 1) * 12
+      }&limit=12`;
+      const response = await axios.get(URL);
+      const productsObj = response.data;
+      setProducts(productsObj.products);
+    };
+
+    fetchAPi();
+  }, [page]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Home page={page} products={products} />
+      <Pagination page={page} setPage={setPage} />
     </div>
   );
-}
+};
 
 export default App;
