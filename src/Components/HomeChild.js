@@ -16,7 +16,7 @@ const HomeChild = ({ elem }) => {
         <br />
         <div className="productDetails">
           <div>
-            <span className="actualPrice">price-{elem.price}</span> <br />
+            <span className="actualPrice">price-&#8377;{elem.price}</span> <br />
             <br />
             <span className="offerPrice">
               Offer Price - &#8377;{" "}
